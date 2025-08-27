@@ -22,6 +22,7 @@ function scanExtensionIDS() {
     const link = "https://chromewebstore.google.com/detail/e/"+id
     anchor.innerText = id;
     anchor.href = link;
+    anchor.target = "_blank";
     anchor.onclick = function() {
       anchor.remove();
     };
