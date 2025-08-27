@@ -1,0 +1,33 @@
+<html>
+  
+  <head>
+    
+  </head>
+  
+  <body>
+    <label>Paste Extension IDs here:</label>
+    <textarea id="extensionIDs" rows="30" cols="50"></textarea>
+    <button id="scanBtn" onclick="scanExtensionIDS()">scan</button>
+  </body>
+  
+  <script>
+  const scanBtn = document.getElementById("scanBtn");
+const extInput= document.getElementById("extensionIDs")
+const links = document.getElementById("links")
+
+function scanExtensionIDS() {
+  const IDs = JSON.parse(extInput.value);
+  IDs.forEach(id => {
+    const anchor = document.createElement("a")
+    const link = "https://chromewebstore.google.com/detail/e/"+id
+    anchor.innerText = id;
+    anchor.href = link;
+    anchor.onclick = function() {
+      anchor.remove();
+    };
+    document.body.appendChild(anchor);
+  });
+}
+  </script>
+  
+</html>
